@@ -1,13 +1,7 @@
 window.addEventListener("load", ()=>{
     //地図を表示するdiv要素のidを設定
     const w = new World('mapid');
-    const m = new madoi.Madoi("rooms/mapgame-jlajaslkfj4");
-    m.register(w, [
-        {method: w.setMarkerPos, share: {maxLog: 100}}
-    ]);
-    m.onEnterRoom = ()=>{
-        w.setSelfMarkerPos([34.98506, 135.7527])
-    };
+
     let keys = {};
     window.addEventListener("keydown", e=>{
         keys[e.key] = true;
@@ -23,6 +17,14 @@ window.addEventListener("load", ()=>{
         requestAnimationFrame(animate);
     }
     animate();
+
+    const m = new madoi.Madoi("rooms/mapgame-jlajaslkfj4");
+    m.register(w, [
+        {method: w.setMarkerPos, share: {maxLog: 100}}
+    ]);
+    m.onEnterRoom = ()=>{
+        w.setSelfMarkerPos([34.98506, 135.7527])
+    };
 });
 class World{
     constructor(mapSelector){
