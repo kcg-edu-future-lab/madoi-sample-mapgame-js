@@ -1,0 +1,1 @@
+# madoi-sample-mapgame-js
